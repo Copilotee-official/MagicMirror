@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic Mirror</title>
+    <title>男士发型智能推荐系统</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #12123c 0%, #2d0b3d 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
@@ -21,7 +21,7 @@
         
         header {
             position: relative;
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
             overflow: hidden;
         }
@@ -37,7 +37,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, rgba(255,0,255,0.1), rgba(0,255,255,0.1));
+            background: linear-gradient(90deg, rgba(52,152,219,0.1), rgba(46,204,113,0.1));
             z-index: 1;
         }
         
@@ -45,7 +45,7 @@
             position: absolute;
             width: 50px;
             height: 200px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
+            background: linear-gradient(to bottom, rgba(52,152,219,0.8), rgba(52,152,219,0));
             transform: rotate(45deg);
             filter: blur(10px);
             animation: beam-move 8s infinite linear;
@@ -69,13 +69,20 @@
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin: 0;
-            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            background: linear-gradient(90deg, #3498db, #2ecc71);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: title-shimmer 3s infinite;
-            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+            text-shadow: 0 0 10px rgba(52,152,219,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #74b9ff;
+            font-weight: 300;
         }
         
         @keyframes title-shimmer {
@@ -108,9 +115,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 25%;
+            width: 33.33%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255,0,255,0.2) 0%, rgba(255,0,255,0) 70%);
+            background: radial-gradient(circle, rgba(52,152,219,0.2) 0%, rgba(52,152,219,0) 70%);
             transition: all 0.5s ease;
             z-index: 0;
         }
@@ -137,7 +144,7 @@
         }
         
         .tab.active {
-            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            background: linear-gradient(45deg, #3498db, #2ecc71);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
@@ -160,7 +167,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle at top right, rgba(52,152,219,0.1) 0%, rgba(52,152,219,0) 70%);
             pointer-events: none;
         }
         
@@ -189,7 +196,7 @@
         .upload-box {
             width: 300px;
             height: 200px;
-            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border: 2px dashed rgba(52,152,219, 0.3);
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -204,14 +211,14 @@
         }
         
         .upload-box:hover {
-            border-color: #ff00ff;
+            border-color: #3498db;
             transform: scale(1.02);
         }
         
         .upload-box i {
             font-size: 50px;
             margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.7);
+            color: #74b9ff;
         }
         
         .upload-box p {
@@ -229,13 +236,13 @@
             padding: 12px 30px;
             border: none;
             border-radius: 30px;
-            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            background: linear-gradient(45deg, #3498db, #2ecc71);
             color: #fff;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
+            margin: 10px;
             position: relative;
             overflow: hidden;
         }
@@ -308,7 +315,7 @@
         
         .result-card h3 {
             margin-bottom: 15px;
-            color: #00ffff;
+            color: #74b9ff;
             font-size: 1.2rem;
         }
         
@@ -335,7 +342,7 @@
         .progress-fill {
             height: 100%;
             border-radius: 4px;
-            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            background: linear-gradient(90deg, #3498db, #2ecc71);
             transition: width 1s ease-in-out;
             position: relative;
             overflow: hidden;
@@ -361,45 +368,7 @@
             }
         }
         
-        .face-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        
-        .face-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .face-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        .face-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .face-card h3 {
-            color: #00ffff;
-            margin-bottom: 10px;
-        }
-        
-        .face-card p {
-            text-align: center;
-            line-height: 1.6;
-        }
-        
+        /* 3D建模部分样式 */
         .model-section {
             display: flex;
             justify-content: space-between;
@@ -425,7 +394,7 @@
             left: 0;
             width: 100%;
             height: 0%;
-            background: linear-gradient(to top, rgba(255,0,255,0.3), rgba(0,255,255,0.3));
+            background: linear-gradient(to top, rgba(52,152,219,0.3), rgba(46,204,113,0.3));
             transition: height 2s ease-in-out;
             border-radius: 10px;
         }
@@ -438,7 +407,7 @@
         }
         
         .model-info h3 {
-            color: #00ffff;
+            color: #74b9ff;
             margin-bottom: 15px;
         }
         
@@ -459,70 +428,12 @@
         .rendering-fill {
             height: 100%;
             border-radius: 4px;
-            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            background: linear-gradient(90deg, #3498db, #2ecc71);
             width: 0%;
             transition: width 2s linear;
         }
 
-        /* 试妆部分样式 */
-        .makeup-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .makeup-option {
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .makeup-option:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        .makeup-option.active {
-            background: linear-gradient(45deg, rgba(255,0,255,0.5), rgba(0,255,255,0.5));
-        }
-        
-        .makeup-preview {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-        }
-        
-        .original-image, .makeup-image {
-            width: 48%;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-        
-        .original-image img, .makeup-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .image-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            text-align: center;
-        }
-        
-        /* 发型部分样式 */
+        /* 发型推荐部分样式 */
         .hairstyle-options {
             display: flex;
             flex-wrap: wrap;
@@ -545,7 +456,7 @@
         }
         
         .hairstyle-option.active {
-            background: linear-gradient(45deg, rgba(255,0,255,0.5), rgba(0,255,255,0.5));
+            background: linear-gradient(45deg, rgba(52,152,219,0.5), rgba(46,204,113,0.5));
         }
         
         .hairstyle-grid {
@@ -578,7 +489,7 @@
         }
         
         .hairstyle-info h4 {
-            color: #00ffff;
+            color: #74b9ff;
             margin-bottom: 10px;
         }
         
@@ -589,7 +500,7 @@
         
         .apply-button {
             padding: 8px 15px;
-            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            background: linear-gradient(45deg, #3498db, #2ecc71);
             border: none;
             border-radius: 20px;
             color: white;
@@ -632,7 +543,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border: 2px solid rgba(0, 255, 255, 0.5);
+            border: 2px solid rgba(52, 152, 219, 0.5);
             border-radius: 10px;
             box-sizing: border-box;
             pointer-events: none;
@@ -646,7 +557,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(255,255,255,0) 60%, rgba(0,255,255,0.2) 100%);
+            background: radial-gradient(circle at center, rgba(255,255,255,0) 60%, rgba(52,152,219,0.2) 100%);
         }
         
         .camera-controls {
@@ -660,7 +571,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            background: linear-gradient(45deg, #3498db, #2ecc71);
             border: none;
             display: flex;
             align-items: center;
@@ -686,7 +597,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.8), transparent);
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.8), transparent);
             z-index: 3;
             animation: scan 2s linear infinite;
         }
@@ -722,7 +633,7 @@
         
         .grid-line {
             position: absolute;
-            background-color: rgba(0, 255, 255, 0.3);
+            background-color: rgba(52, 152, 219, 0.3);
         }
         
         .grid-line-h {
@@ -740,9 +651,9 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background-color: rgba(255, 0, 255, 0.7);
+            background-color: rgba(52, 152, 219, 0.7);
             transform: translate(-50%, -50%);
-            box-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
             animation: pulsate 2s infinite;
         }
         
@@ -793,7 +704,7 @@
         }
         
         .angle-selector button.active {
-            background: linear-gradient(45deg, rgba(255,0,255,0.5), rgba(0,255,255,0.5));
+            background: linear-gradient(45deg, rgba(52,152,219,0.5), rgba(46,204,113,0.5));
         }
         
         .data-display {
@@ -804,7 +715,7 @@
             padding: 8px;
             border-radius: 5px;
             font-size: 10px;
-            color: #00ffff;
+            color: #74b9ff;
             max-width: 150px;
             pointer-events: none;
         }
@@ -815,7 +726,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(transparent, rgba(0, 255, 255, 0.1), transparent);
+            background: linear-gradient(transparent, rgba(52, 152, 219, 0.1), transparent);
             transform: translateY(-100%);
             animation: scanning 3s linear infinite;
             pointer-events: none;
@@ -831,10 +742,69 @@
             }
         }
         
+        /* AR试发型预览 */
+        .ar-preview {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .original-image, .ar-image {
+            width: 48%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .original-image img, .ar-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+        }
+        
+        /* 专业建议卡片 */
+        .suggestion-card {
+            background: linear-gradient(145deg, rgba(52,152,219,0.1), rgba(46,204,113,0.1));
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .suggestion-card h4 {
+            color: #74b9ff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .suggestion-card p {
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .face-grid {
-                grid-template-columns: 1fr;
+            .tab-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-glowing-bg {
+                width: 100%;
+                height: 25%;
             }
             
             .model-section {
@@ -846,11 +816,11 @@
                 margin-bottom: 20px;
             }
             
-            .makeup-preview {
+            .ar-preview {
                 flex-direction: column;
             }
             
-            .original-image, .makeup-image {
+            .original-image, .ar-image {
                 width: 100%;
                 margin-bottom: 20px;
             }
@@ -862,6 +832,11 @@
             .tab {
                 padding: 10px 15px;
                 font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -872,25 +847,24 @@
         <div class="header-bg"></div>
         <div class="light-beam"></div>
         <div class="header-content">
-            <h1>Magic Mirror</h1>
-            <p>多模态人工智能美妆系统</p>
+            <h1>男士发型智能推荐系统</h1>
+            <p class="subtitle">基于3D建模与AI分析的专业发型解决方案</p>
         </div>
     </header>
     
     <div class="container">
         <div class="tab-container">
             <div class="tab-glowing-bg"></div>
-            <button class="tab active" data-tab="analysis">面部分析</button>
-            <button class="tab" data-tab="reconstruction">3D面部重建</button>
-            <button class="tab" data-tab="makeup">精准试妆</button>
+            <button class="tab active" data-tab="analysis">头型分析</button>
+            <button class="tab" data-tab="reconstruction">3D头部建模</button>
             <button class="tab" data-tab="hairstyle">发型推荐</button>
         </div>
         
         <div id="analysis" class="content active">
             <div class="upload-section">
                 <div class="upload-box" id="uploadBox">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p>点击或拖拽上传图片</p>
+                    <i class="fas fa-camera-retro"></i>
+                    <p>上传头部照片进行分析</p>
                     <input type="file" id="fileInput" style="display: none;" accept="image/*">
                 </div>
                 <button class="analysis-button" id="takePhotoButton">拍照</button>
@@ -912,12 +886,12 @@
                     <div class="camera-grid" id="cameraGrid"></div>
                     <div class="scanning-effect"></div>
                     <div class="data-display">
-                        正在分析面部特征...<br>
+                        分析头型特征...<br>
                         识别点位: <span id="pointCount">0</span>/68<br>
-                        面部宽度: <span id="faceWidth">0</span>px<br>
-                        面部高度: <span id="faceHeight">0</span>px<br>
-                        光线条件: <span id="lightCondition">分析中</span><br>
-                        角度: <span id="angleStatus">正面</span>
+                        头宽: <span id="headWidth">0</span>px<br>
+                        头长: <span id="headLength">0</span>px<br>
+                        发际线高度: <span id="hairlineHeight">分析中</span><br>
+                        脸型: <span id="faceShapeType">识别中</span>
                     </div>
                 </div>
                 <div class="camera-controls">
@@ -933,40 +907,40 @@
             
             <div class="result-section" id="resultSection">
                 <div class="result-card">
-                    <h3>面部特征分析</h3>
+                    <h3>头型特征分析</h3>
                     <div class="feature-value">
-                        <span>对称性</span>
-                        <span id="symmetryValue">0%</span>
+                        <span>脸型匹配度</span>
+                        <span id="faceMatchValue">0%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" id="symmetryBar" style="width: 0%"></div>
+                        <div class="progress-fill" id="faceMatchBar" style="width: 0%"></div>
                     </div>
                     
                     <div class="feature-value">
-                        <span>肤质</span>
-                        <span id="skinValue">0%</span>
+                        <span>发际线健康度</span>
+                        <span id="hairlineValue">0%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" id="skinBar" style="width: 0%"></div>
+                        <div class="progress-fill" id="hairlineBar" style="width: 0%"></div>
                     </div>
                     
                     <div class="feature-value">
-                        <span>面部轮廓</span>
-                        <span id="contourValue">0%</span>
+                        <span>头型比例</span>
+                        <span id="proportionValue">0%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" id="contourBar" style="width: 0%"></div>
+                        <div class="progress-fill" id="proportionBar" style="width: 0%"></div>
                     </div>
                 </div>
                 
                 <div class="result-card">
-                    <h3>美学评分</h3>
-                    <p id="aestheticDescription">分析中...</p>
+                    <h3>脸型识别结果</h3>
+                    <p id="faceShapeDescription">分析中...</p>
                 </div>
                 
-                <div class="result-card">
-                    <h3>最佳推荐</h3>
-                    <p id="recommendations">分析中...</p>
+                <div class="suggestion-card">
+                    <h4><i class="fas fa-lightbulb"></i> 专业建议</h4>
+                    <p id="professionalAdvice">基于您的头型特征，AI正在生成个性化建议...</p>
                 </div>
             </div>
         </div>
@@ -974,12 +948,12 @@
         <div id="reconstruction" class="content">
             <div class="upload-section">
                 <div class="upload-box" id="reconstructionUploadBox">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p>点击或拖拽上传图片</p>
+                    <i class="fas fa-cube"></i>
+                    <p>上传照片进行3D头部建模</p>
                     <input type="file" id="reconstructionFileInput" style="display: none;" accept="image/*">
                 </div>
                 <button class="analysis-button" id="reconstructionPhotoButton">拍照</button>
-                <button class="analysis-button" id="reconstructionButton">开始3D重建</button>
+                <button class="analysis-button" id="reconstructionButton">开始3D建模</button>
             </div>
             
             <div class="camera-section" id="reconstructionCameraSection" style="display: none;">
@@ -997,10 +971,10 @@
                     <div class="camera-grid" id="reconstructionCameraGrid"></div>
                     <div class="scanning-effect"></div>
                     <div class="data-display">
-                        准备3D模型构建...<br>
-                        识别点位: <span id="reconstructionPointCount">0</span>/68<br>
-                        模型精度: <span id="modelPrecision">标准</span><br>
-                        深度识别: <span id="depthDetection">准备中</span><br>
+                        准备3D建模...<br>
+                        深度扫描: <span id="depthScan">0</span>%<br>
+                        模型精度: <span id="modelAccuracy">高精度</span><br>
+                        纹理捕获: <span id="textureCapture">准备中</span><br>
                         角度: <span id="reconstructionAngleStatus">正面</span>
                     </div>
                 </div>
@@ -1018,87 +992,22 @@
             <div class="model-section" id="modelSection" style="display: none;">
                 <div class="model-container">
                     <div class="model-image">
-                        <img src="https://storage.googleapis.com/claude-images/raw/76a972e9-d09b-4826-8bb9-b4e0c35aae20" id="modelImage" alt="3D面部模型">
+                        <img src="https://storage.googleapis.com/claude-images/raw/76a972e9-d09b-4826-8bb9-b4e0c35aae20" id="modelImage" alt="3D头部模型">
                         <div class="model-overlay" id="modelOverlay"></div>
                     </div>
                 </div>
                 
                 <div class="model-info">
-                    <h3>3D重建进度</h3>
-                    <p id="renderingStatus">准备重建...</p>
+                    <h3>3D建模进度</h3>
+                    <p id="renderingStatus">准备构建3D头部模型...</p>
                     <div class="rendering-progress">
                         <div class="rendering-fill" id="renderingProgress"></div>
                     </div>
                     <div id="modelStats" style="margin-top: 20px;">
-                        <p>多边形数量: <span id="polygonCount">0</span></p>
-                        <p>顶点数量: <span id="vertexCount">0</span></p>
+                        <p>头部模型顶点: <span id="headVertexCount">0</span></p>
+                        <p>面部网格: <span id="faceMeshCount">0</span></p>
                         <p>纹理分辨率: <span id="textureResolution">0x0</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="makeup" class="content">
-            <div class="upload-section">
-                <div class="upload-box" id="makeupUploadBox">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p>点击或拖拽上传图片</p>
-                    <input type="file" id="makeupFileInput" style="display: none;" accept="image/*">
-                </div>
-                <button class="analysis-button" id="makeupPhotoButton">拍照</button>
-                <button class="analysis-button" id="makeupButton">开始试妆</button>
-            </div>
-            
-            <div class="camera-section" id="makeupCameraSection" style="display: none;">
-                <div class="angle-selector">
-                    <button class="angle-btn active" data-angle="front">正面</button>
-                    <button class="angle-btn" data-angle="left">左侧</button>
-                    <button class="angle-btn" data-angle="right">右侧</button>
-                </div>
-                <div class="camera-container">
-                    <video id="makeupCameraPreview" class="camera-preview" autoplay playsinline></video>
-                    <div class="camera-overlay"></div>
-                    <div class="scanning-line"></div>
-                    <div class="camera-grid" id="makeupCameraGrid"></div>
-                    <div class="scanning-effect"></div>
-                    <div class="data-display">
-                        准备试妆分析...<br>
-                        识别点位: <span id="makeupPointCount">0</span>/68<br>
-                        肤色: <span id="skinTone">分析中</span><br>
-                        光线: <span id="makeupLight">分析中</span><br>
-                        角度: <span id="makeupAngleStatus">正面</span>
-                    </div>
-                </div>
-                <div class="camera-controls">
-                    <button class="camera-button" id="makeupCaptureButton">
-                        <i class="fas fa-camera"></i>
-                    </button>
-                    <button class="camera-button" id="makeupCloseCamera">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <img id="makeupCapturedImage" class="captured-image" src="" alt="拍摄的照片">
-            </div>
-            
-            <div id="makeupOptions" style="display: none;">
-                <h3 style="text-align: center; margin-bottom: 20px;">选择妆容风格</h3>
-                <div class="makeup-options">
-                    <div class="makeup-option active" data-style="natural">自然妆容</div>
-                    <div class="makeup-option" data-style="smokey">烟熏妆</div>
-                    <div class="makeup-option" data-style="korean">韩系裸妆</div>
-                    <div class="makeup-option" data-style="japanese">日系腮红</div>
-                    <div class="makeup-option" data-style="party">派对妆容</div>
-                </div>
-                
-                <div class="makeup-preview">
-                    <div class="original-image">
-                        <img id="originalMakeupImage" src="" alt="原始图像">
-                        <div class="image-label">原始照片</div>
-                    </div>
-                    
-                    <div class="makeup-image">
-                        <img id="makeupResultImage" src="" alt="试妆效果">
-                        <div class="image-label">试妆效果</div>
+                        <p>建模精度: <span id="modelPrecision">毫米级</span></p>
                     </div>
                 </div>
             </div>
@@ -1107,12 +1016,12 @@
         <div id="hairstyle" class="content">
             <div class="upload-section">
                 <div class="upload-box" id="hairstyleUploadBox">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p>点击或拖拽上传图片</p>
+                    <i class="fas fa-scissors"></i>
+                    <p>上传照片获取发型推荐</p>
                     <input type="file" id="hairstyleFileInput" style="display: none;" accept="image/*">
                 </div>
                 <button class="analysis-button" id="hairstylePhotoButton">拍照</button>
-                <button class="analysis-button" id="hairstyleButton">分析并推荐发型</button>
+                <button class="analysis-button" id="hairstyleButton">智能推荐发型</button>
             </div>
             
             <div class="camera-section" id="hairstyleCameraSection" style="display: none;">
@@ -1128,11 +1037,11 @@
                     <div class="camera-grid" id="hairstyleCameraGrid"></div>
                     <div class="scanning-effect"></div>
                     <div class="data-display">
-                        准备发型分析...<br>
-                        脸型识别: <span id="faceShape">分析中</span><br>
-                        发际线: <span id="hairline">分析中</span><br>
-                        发量: <span id="hairVolume">分析中</span><br>
-                        角度: <span id="hairstyleAngleStatus">正面</span>
+                        分析发型适配度...<br>
+                        脸型: <span id="faceShape">分析中</span><br>
+                        发际线: <span id="hairline">检测中</span><br>
+                        头型: <span id="headShape">识别中</span><br>
+                        风格匹配: <span id="styleMatch">计算中</span>
                     </div>
                 </div>
                 <div class="camera-controls">
@@ -1147,17 +1056,36 @@
             </div>
             
             <div id="hairstyleOptions" style="display: none;">
-                <h3 style="text-align: center; margin-bottom: 20px;">选择发型风格</h3>
+                <h3 style="text-align: center; margin-bottom: 20px; color: #74b9ff;">
+                    <i class="fas fa-cut"></i> 选择发型风格偏好
+                </h3>
                 <div class="hairstyle-options">
-                    <div class="hairstyle-option active" data-style="short">短发</div>
-                    <div class="hairstyle-option" data-style="medium">中发</div>
-                    <div class="hairstyle-option" data-style="long">长发</div>
-                    <div class="hairstyle-option" data-style="curly">卷发</div>
-                    <div class="hairstyle-option" data-style="straight">直发</div>
+                    <div class="hairstyle-option active" data-style="business">商务风</div>
+                    <div class="hairstyle-option" data-style="casual">休闲风</div>
+                    <div class="hairstyle-option" data-style="trendy">时尚潮流</div>
+                    <div class="hairstyle-option" data-style="classic">经典款</div>
+                    <div class="hairstyle-option" data-style="sport">运动风</div>
+                </div>
+                
+                <div class="ar-preview">
+                    <div class="original-image">
+                        <img id="originalHairstyleImage" src="" alt="原始照片">
+                        <div class="image-label">原始照片</div>
+                    </div>
+                    
+                    <div class="ar-image">
+                        <img id="arHairstyleImage" src="" alt="AR试发型效果">
+                        <div class="image-label">AR试发型效果</div>
+                    </div>
                 </div>
                 
                 <div class="hairstyle-grid" id="hairstyleGrid">
-                    <!-- 发型卡片将在这里动态添加 -->
+                    <!-- 发型推荐卡片将在这里动态添加 -->
+                </div>
+                
+                <div class="suggestion-card" id="aiSuggestion" style="display: none;">
+                    <h4><i class="fas fa-robot"></i> AI专业建议</h4>
+                    <p id="aiAdvice">基于您的脸型、头型和个人风格，为您生成专业发型建议...</p>
                 </div>
             </div>
         </div>
@@ -1165,6 +1093,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // ... (保留原有的基础JavaScript代码)
             // 获取元素
             const tabs = document.querySelectorAll('.tab');
             const contents = document.querySelectorAll('.content');
@@ -1192,19 +1121,6 @@
             const modelOverlay = document.getElementById('modelOverlay');
             const renderingProgress = document.getElementById('renderingProgress');
             const renderingStatus = document.getElementById('renderingStatus');
-            const makeupUploadBox = document.getElementById('makeupUploadBox');
-            const makeupFileInput = document.getElementById('makeupFileInput');
-            const makeupPhotoButton = document.getElementById('makeupPhotoButton');
-            const makeupCameraSection = document.getElementById('makeupCameraSection');
-            const makeupCameraPreview = document.getElementById('makeupCameraPreview');
-            const makeupCaptureButton = document.getElementById('makeupCaptureButton');
-            const makeupCloseCamera = document.getElementById('makeupCloseCamera');
-            const makeupCapturedImage = document.getElementById('makeupCapturedImage');
-            const makeupButton = document.getElementById('makeupButton');
-            const makeupOptions = document.getElementById('makeupOptions');
-            const makeupOptionButtons = document.querySelectorAll('.makeup-option');
-            const originalMakeupImage = document.getElementById('originalMakeupImage');
-            const makeupResultImage = document.getElementById('makeupResultImage');
             const hairstyleUploadBox = document.getElementById('hairstyleUploadBox');
             const hairstyleFileInput = document.getElementById('hairstyleFileInput');
             const hairstylePhotoButton = document.getElementById('hairstylePhotoButton');
@@ -1218,7 +1134,10 @@
             const hairstyleOptionButtons = document.querySelectorAll('.hairstyle-option');
             const hairstyleGrid = document.getElementById('hairstyleGrid');
             const tabGlowingBg = document.querySelector('.tab-glowing-bg');
-            const allAngleButtons = document.querySelectorAll('.angle-btn');
+            const originalHairstyleImage = document.getElementById('originalHairstyleImage');
+            const arHairstyleImage = document.getElementById('arHairstyleImage');
+            const aiSuggestion = document.getElementById('aiSuggestion');
+            const aiAdvice = document.getElementById('aiAdvice');
             
             // 用于存储相机流
             let stream = null;
@@ -1236,7 +1155,7 @@
                     
                     // 移动发光背景
                     const tabIndex = Array.from(tabs).indexOf(tab);
-                    tabGlowingBg.style.left = `${tabIndex * 25}%`;
+                    tabGlowingBg.style.left = `${tabIndex * 33.33}%`;
                     
                     // 切换标签时关闭相机流
                     stopCamera();
@@ -1263,38 +1182,38 @@
                     gridElement.appendChild(line);
                 }
                 
-                // 随机生成面部关键点
-                const faceLandmarks = [
-                    // 脸部轮廓 (17点)
+                // 面部关键点（专注于男性头型特征）
+                const headLandmarks = [
+                    // 脸部轮廓 (重点关注男性特征)
                     {x: 33, y: 80}, {x: 37, y: 70}, {x: 40, y: 60}, {x: 44, y: 50},
                     {x: 48, y: 40}, {x: 53, y: 35}, {x: 58, y: 34},
                     {x: 62, y: 35}, {x: 67, y: 40}, {x: 71, y: 50}, {x: 75, y: 60},
                     {x: 78, y: 70}, {x: 80, y: 80}, {x: 75, y: 84}, {x: 63, y: 88},
                     {x: 50, y: 89}, {x: 38, y: 85},
-                    // 眉毛 (10点)
+                    // 发际线关键点
+                    {x: 35, y: 25}, {x: 40, y: 22}, {x: 45, y: 20}, {x: 50, y: 19}, 
+                    {x: 55, y: 20}, {x: 60, y: 22}, {x: 65, y: 25},
+                    // 眉毛线条
                     {x: 35, y: 40}, {x: 39, y: 38}, {x: 43, y: 38}, {x: 47, y: 40}, {x: 50, y: 41},
                     {x: 62, y: 41}, {x: 65, y: 40}, {x: 70, y: 38}, {x: 74, y: 38}, {x: 77, y: 40},
-                    // 鼻子 (9点)
+                    // 鼻子轮廓
                     {x: 55, y: 48}, {x: 55, y: 53}, {x: 55, y: 58}, {x: 55, y: 63},
                     {x: 50, y: 63}, {x: 53, y: 64}, {x: 55, y: 65}, {x: 57, y: 64}, {x: 60, y: 63},
-                    // 眼睛 (12点)
+                    // 眼部区域
                     {x: 39, y: 45}, {x: 42, y: 44}, {x: 45, y: 44}, {x: 48, y: 45},
                     {x: 45, y: 46}, {x: 42, y: 46},
                     {x: 62, y: 45}, {x: 65, y: 44}, {x: 68, y: 44}, {x: 71, y: 45},
                     {x: 68, y: 46}, {x: 65, y: 46},
-                    // 嘴巴 (20点)
-                    {x: 43, y: 73}, {x: 47, y: 72}, {x: 50, y: 72}, {x: 53, y: 72}, {x: 57, y: 72}, {x: 63, y: 73},
-                    {x: 67, y: 72}, {x: 63, y: 75}, {x: 57, y: 76}, {x: 53, y: 76}, {x: 50, y: 76}, {x: 47, y: 76},
-                    {x: 43, y: 75}, {x: 47, y: 74}, {x: 50, y: 74}, {x: 53, y: 74}, {x: 57, y: 74}, {x: 63, y: 74},
-                    {x: 53, y: 76}, {x: 57, y: 76}
+                    // 嘴部轮廓
+                    {x: 43, y: 73}, {x: 47, y: 72}, {x: 50, y: 72}, {x: 53, y: 72}, {x: 57, y: 72}, {x: 63, y: 73}
                 ];
                 
-                // 只展示随机数量的点位，模拟识别过程
-                const randomPoints = Math.min(Math.floor(Math.random() * maxPoints) + 20, maxPoints);
+                // 随机显示点位数量
+                const randomPoints = Math.min(Math.floor(Math.random() * maxPoints) + 30, maxPoints);
                 
                 for (let i = 0; i < randomPoints; i++) {
-                    if (i < faceLandmarks.length) {
-                        const point = faceLandmarks[i];
+                    if (i < headLandmarks.length) {
+                        const point = headLandmarks[i];
                         
                         // 添加面部关键点
                         const landmark = document.createElement('div');
@@ -1303,11 +1222,11 @@
                         landmark.style.top = `${point.y}%`;
                         gridElement.appendChild(landmark);
                         
-                        // 对部分关键点添加标签
-                        if (i % 7 === 0) {
+                        // 对重要点位添加标签
+                        if (i % 8 === 0) {
                             const label = document.createElement('div');
                             label.className = 'landmark-label';
-                            label.textContent = `P${i}`;
+                            label.textContent = `H${i}`;
                             label.style.left = `${point.x}%`;
                             label.style.top = `${point.y - 2}%`;
                             gridElement.appendChild(label);
@@ -1357,7 +1276,242 @@
                 });
             }
             
-            // 文件上传 - 面部分析
+            // 头型分析功能
+            function performHeadAnalysis() {
+                resultSection.style.display = 'block';
+                
+                // 随机生成分析结果
+                const faceMatch = Math.floor(Math.random() * 20) + 75; // 75-95之间
+                const hairline = Math.floor(Math.random() * 25) + 70; // 70-95之间
+                const proportion = Math.floor(Math.random() * 20) + 80; // 80-100之间
+                
+                const faceMatchBar = document.getElementById('faceMatchBar');
+                const hairlineBar = document.getElementById('hairlineBar');
+                const proportionBar = document.getElementById('proportionBar');
+                const faceMatchValue = document.getElementById('faceMatchValue');
+                const hairlineValue = document.getElementById('hairlineValue');
+                const proportionValue = document.getElementById('proportionValue');
+                const faceShapeDescription = document.getElementById('faceShapeDescription');
+                const professionalAdvice = document.getElementById('professionalAdvice');
+                
+                // 动画显示进度条
+                setTimeout(() => {
+                    faceMatchBar.style.width = faceMatch + '%';
+                    faceMatchValue.textContent = faceMatch + '%';
+                }, 300);
+                
+                setTimeout(() => {
+                    hairlineBar.style.width = hairline + '%';
+                    hairlineValue.textContent = hairline + '%';
+                }, 600);
+                
+                setTimeout(() => {
+                    proportionBar.style.width = proportion + '%';
+                    proportionValue.textContent = proportion + '%';
+                }, 900);
+                
+                // 男性脸型描述
+                const maleShapeDescriptions = [
+                    "您的脸型属于标准椭圆形，这是男性中最理想的脸型之一。面部轮廓平衡，下颌线条清晰，适合多种发型风格。建议可以尝试经典的商务短发或时尚的undercut发型。",
+                    "分析显示您是方形脸型，具有宽额头和强有力的下颌线条，展现阳刚之气。这种脸型很适合带有层次感的发型来柔化面部线条，如侧分短发或textured crop发型。",
+                    "您的脸型偏向长形，面部比例修长。建议选择能增加面部宽度视觉效果的发型，如蓬松的quiff发型或侧梳背头，避免过长的发型。",
+                    "您的脸型呈现心形特征，额头较宽，下巴略尖。这种脸型适合在太阳穴和额头两侧增加一些发量，如fringe发型或forward swept style。",
+                    "您拥有圆形脸型，面部线条柔和。建议选择能拉长面部视觉效果的发型，如pompadour或high fade等，避免过于蓬松的侧面发型。"
+                ];
+                
+                const maleAdviceList = [
+                    "根据您的头型特征，建议定期修剪保持发型整洁。可以尝试渐变式理发(fade cut)来突出面部轮廓。护发方面，建议使用男士专用洗发水，并定期使用发蜡或发膏来定型。",
+                    "您的发际线健康状况良好，适合尝试露额头的发型如slicked back或side part。建议避免过度使用强力定型产品，选择自然度较高的发蜡来保持发型的同时保护头发健康。",
+                    "您的头型比例非常适合现代流行的短发造型。建议尝试textured quiff或modern pompadour等时尚发型。日常护理时，注意控制洗头频率，男性一般2-3天洗一次即可。",
+                    "基于您的面部特征，建议选择能够平衡脸型的asymmetric发型。定期到专业理发店修剪，并询问理发师关于适合您脸型的具体长度建议。",
+                    "您的头型适合大胆尝试各种创意发型。可以考虑undercut、fade或disconnect等现代男士发型。建议投资一把好的梳子和优质的定型产品来维持发型效果。"
+                ];
+                
+                // 随机选择描述和建议
+                setTimeout(() => {
+                    const randomIndex = Math.floor(Math.random() * maleShapeDescriptions.length);
+                    faceShapeDescription.textContent = maleShapeDescriptions[randomIndex];
+                    professionalAdvice.textContent = maleAdviceList[randomIndex];
+                }, 1200);
+            }
+            
+            // 生成男士发型推荐
+            function generateMaleHairstyles(style) {
+                hairstyleGrid.innerHTML = '';
+                
+                const maleHairstyles = {
+                    'business': [
+                        { 
+                            name: '经典商务短发', 
+                            description: '传统的商务风格，侧分设计，适合正式场合，展现专业形象。长度控制在2-3厘米，易于打理。',
+                            compatibility: '95%'
+                        },
+                        { 
+                            name: '现代商务Cut', 
+                            description: '融合现代元素的商务发型，侧面渐变，顶部稍长，既正式又时尚，适合年轻职场人士。',
+                            compatibility: '88%'
+                        },
+                        { 
+                            name: '精英短背头', 
+                            description: '梳理整齐的背头造型，展现成熟稳重气质，适合管理层和商务精英。',
+                            compatibility: '92%'
+                        }
+                    ],
+                    'casual': [
+                        { 
+                            name: '自然层次短发', 
+                            description: '轻松自然的层次感设计，日常打理简单，适合休闲和运动场合，展现阳光活力。',
+                            compatibility: '90%'
+                        },
+                        { 
+                            name: '休闲侧分', 
+                            description: '随性的侧分造型，不需要精确打理，适合日常生活，既舒适又有型。',
+                            compatibility: '85%'
+                        },
+                        { 
+                            name: '蓬松短卷', 
+                            description: '适合自然卷发质，保持头发的自然纹理，营造轻松随意的休闲感。',
+                            compatibility: '82%'
+                        }
+                    ],
+                    'trendy': [
+                        { 
+                            name: 'Undercut削边', 
+                            description: '时下流行的削边发型，侧面和后面剃短，顶部保留长度，对比强烈，个性十足。',
+                            compatibility: '93%'
+                        },
+                        { 
+                            name: '现代Quiff', 
+                            description: '前额头发向上梳理的时尚造型，增加高度和立体感，展现个性和时尚品味。',
+                            compatibility: '87%'
+                        },
+                        { 
+                            name: 'Fade渐变', 
+                            description: '专业渐变技术打造，从短到长的自然过渡，现代感十足，适合追求时尚的男士。',
+                            compatibility: '91%'
+                        }
+                    ],
+                    'classic': [
+                        { 
+                            name: '传统中分', 
+                            description: '经典的中分造型，永不过时的选择，适合各种脸型，展现成熟稳重的绅士风度。',
+                            compatibility: '88%'
+                        },
+                        { 
+                            name: '复古油头', 
+                            description: '20-30年代经典发型的现代演绎，使用发油定型，展现复古绅士魅力。',
+                            compatibility: '85%'
+                        },
+                        { 
+                            name: '学院风短发', 
+                            description: '整洁的学院派风格，长度适中，打理简单，适合知识分子气质的男士。',
+                            compatibility: '90%'
+                        }
+                    ],
+                    'sport': [
+                        { 
+                            name: '运动短寸', 
+                            description: '极短的运动发型，便于运动时的舒适性，易于清洁和快速干燥，适合活跃的生活方式。',
+                            compatibility: '94%'
+                        },
+                        { 
+                            name: '功能性短发', 
+                            description: '专为运动设计的实用发型，不影响戴帽子或头盔，适合户外运动爱好者。',
+                            compatibility: '89%'
+                        },
+                        { 
+                            name: '军式短发', 
+                            description: '简洁有力的军事风格，体现阳刚之气，适合喜欢硬朗风格的男士。',
+                            compatibility: '86%'
+                        }
+                    ]
+                };
+                
+                // 添加发型卡片
+                maleHairstyles[style].forEach((hairstyle, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'hairstyle-card';
+                    
+                    card.innerHTML = `
+                        <img src="data:image/svg+xml;charset=UTF-8,${encodeURIComponent(generateHairstylePlaceholder(hairstyle.name))}" alt="${hairstyle.name}">
+                        <div class="hairstyle-info">
+                            <h4>${hairstyle.name}</h4>
+                            <p>${hairstyle.description}</p>
+                            <div style="margin: 10px 0;">
+                                <span style="color: #2ecc71; font-weight: bold;">适配度: ${hairstyle.compatibility}</span>
+                            </div>
+                            <button class="apply-button" onclick="applyHairstyle('${hairstyle.name}')">
+                                <i class="fas fa-magic"></i> AR试发型
+                            </button>
+                        </div>
+                    `;
+                    
+                    hairstyleGrid.appendChild(card);
+                });
+                
+                // 显示AI建议
+                showAIAdvice(style);
+            }
+            
+            // 生成发型占位图
+            function generateHairstylePlaceholder(name) {
+                return `
+                    <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="300" height="200" fill="url(#grad)" opacity="0.1"/>
+                        <circle cx="150" cy="80" r="40" fill="url(#grad)" opacity="0.3"/>
+                        <rect x="110" y="40" width="80" height="30" rx="15" fill="url(#grad)" opacity="0.5"/>
+                        <text x="150" y="140" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#3498db">${name}</text>
+                        <text x="150" y="160" font-family="Arial" font-size="12" text-anchor="middle" fill="#74b9ff">AI生成预览</text>
+                    </svg>
+                `;
+            }
+            
+            // 显示AI专业建议
+            function showAIAdvice(style) {
+                const adviceTexts = {
+                    'business': '基于您的脸型分析，商务风格发型能够很好地突出您的专业形象。建议选择长度适中、线条清晰的发型，搭配优质的定型产品。定期修剪保持整洁，注意发际线的护理。',
+                    'casual': '您的头型特征适合轻松自然的休闲发型。建议选择易于打理的款式，可以尝试一些纹理感的设计。日常护理时使用温和的洗发产品，避免过度造型。',
+                    'trendy': '根据时尚趋势分析，您非常适合尝试当下流行的创意发型。建议选择有个性对比的设计，如渐变或削边。需要定期到专业发型师处维护造型效果。',
+                    'classic': '经典发型永不过时，非常适合您的气质。建议选择简洁大方的传统款式，注重发型的平衡感。使用传统的护发产品，保持发质健康光泽。',
+                    'sport': '运动风格发型完美契合您的活跃生活方式。建议选择短而实用的设计，便于运动和日常活动。重点关注头皮健康，选择透气性好的护发产品。'
+                };
+                
+                aiSuggestion.style.display = 'block';
+                aiAdvice.textContent = adviceTexts[style];
+            }
+            
+            // AR试发型功能
+            window.applyHairstyle = function(hairstyleName) {
+                if (originalHairstyleImage.src) {
+                    // 模拟AR效果应用
+                    arHairstyleImage.src = originalHairstyleImage.src;
+                    
+                    // 根据发型类型应用不同的视觉效果
+                    let filter = 'brightness(1.05) contrast(1.1)';
+                    if (hairstyleName.includes('商务')) {
+                        filter += ' saturate(0.9)';
+                    } else if (hairstyleName.includes('Undercut') || hairstyleName.includes('Quiff')) {
+                        filter += ' saturate(1.2) contrast(1.15)';
+                    } else if (hairstyleName.includes('经典') || hairstyleName.includes('传统')) {
+                        filter += ' sepia(0.1) saturate(1.1)';
+                    }
+                    
+                    arHairstyleImage.style.filter = filter;
+                    
+                    // 显示成功消息
+                    alert(`${hairstyleName} 已应用！您可以在右侧看到AR试发型效果。在真实应用中，这里会使用先进的3D建模和AI图像合成技术为您呈现逼真的发型效果。`);
+                } else {
+                    alert('请先上传照片或拍照');
+                }
+            };
+            
+            // 文件上传处理
             uploadBox.addEventListener('click', () => {
                 fileInput.click();
             });
@@ -1372,35 +1526,36 @@
                 }
             });
             
-            // 开启摄像头 - 面部分析
+            // 其他基础功能保持原有逻辑，但调整为男性发型相关
+            
+            // 拍照功能
             takePhotoButton.addEventListener('click', () => {
                 cameraSection.style.display = 'flex';
                 uploadBox.style.display = 'none';
                 startCamera(cameraPreview);
                 
-                // 初始化网格和点位
                 const gridElement = document.getElementById('cameraGrid');
                 createGridAndLandmarks(gridElement);
                 
-                // 设置随机模拟值
-                document.getElementById('faceWidth').textContent = Math.floor(Math.random() * 100) + 150;
-                document.getElementById('faceHeight').textContent = Math.floor(Math.random() * 100) + 200;
+                // 设置男性头型分析的模拟数据
+                document.getElementById('headWidth').textContent = Math.floor(Math.random() * 50) + 140;
+                document.getElementById('headLength').textContent = Math.floor(Math.random() * 60) + 180;
                 
-                const lightConditions = ['良好', '适中', '过暗', '过亮'];
-                document.getElementById('lightCondition').textContent = lightConditions[Math.floor(Math.random() * lightConditions.length)];
+                const hairlineTypes = ['标准', '高额头', 'M型', '圆形'];
+                document.getElementById('hairlineHeight').textContent = hairlineTypes[Math.floor(Math.random() * hairlineTypes.length)];
                 
-                // 设置角度选择器
+                const faceTypes = ['椭圆形', '方形', '长形', '心形', '圆形'];
+                document.getElementById('faceShapeType').textContent = faceTypes[Math.floor(Math.random() * faceTypes.length)];
+                
                 setupAngleSelector(cameraSection);
             });
             
-            // 关闭摄像头 - 面部分析
             closeCamera.addEventListener('click', () => {
                 cameraSection.style.display = 'none';
                 uploadBox.style.display = 'flex';
                 stopCamera();
             });
             
-            // 拍照 - 面部分析
             captureButton.addEventListener('click', () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = cameraPreview.videoWidth;
@@ -1412,80 +1567,24 @@
                 capturedImage.src = imgData;
                 capturedImage.style.display = 'block';
                 
-                // 同时更新上传框中的图片预览
                 uploadBox.innerHTML = `<img src="${imgData}" class="preview-image">`;
                 
-                // 关闭相机预览，显示上传框
                 cameraSection.style.display = 'none';
                 uploadBox.style.display = 'flex';
                 stopCamera();
             });
             
-            // 开始面部分析
+            // 开始头型分析
             analysisButton.addEventListener('click', () => {
-                if (!fileInput.files && !capturedImage.src) {
-                    alert('请先上传图片或拍照');
+                if (!fileInput.files.length && !capturedImage.src) {
+                    alert('请先上传照片或拍照');
                     return;
                 }
                 
-                resultSection.style.display = 'block';
-                
-                // 随机生成分析结果
-                const symmetry = Math.floor(Math.random() * 30) + 70; // 70-99之间的随机值
-                const skin = Math.floor(Math.random() * 30) + 70;
-                const contour = Math.floor(Math.random() * 30) + 70;
-                
-                const symmetryBar = document.getElementById('symmetryBar');
-                const skinBar = document.getElementById('skinBar');
-                const contourBar = document.getElementById('contourBar');
-                const symmetryValue = document.getElementById('symmetryValue');
-                const skinValue = document.getElementById('skinValue');
-                const contourValue = document.getElementById('contourValue');
-                const aestheticDescription = document.getElementById('aestheticDescription');
-                const recommendations = document.getElementById('recommendations');
-                
-                // 动画显示进度条
-                setTimeout(() => {
-                    symmetryBar.style.width = symmetry + '%';
-                    symmetryValue.textContent = symmetry + '%';
-                }, 300);
-                
-                setTimeout(() => {
-                    skinBar.style.width = skin + '%';
-                    skinValue.textContent = skin + '%';
-                }, 600);
-                
-                setTimeout(() => {
-                    contourBar.style.width = contour + '%';
-                    contourValue.textContent = contour + '%';
-                }, 900);
-                
-                // 随机生成审美评分描述
-                const aestheticDescriptions = [
-                    "您的面部轮廓非常和谐，显示出高度的对称性。眼睛间距比例良好，鼻梁挺直，嘴唇轮廓清晰。整体而言，您的脸型属于椭圆形，这被认为是最平衡的脸型之一。",
-                    "您的面部特征展现出独特的美感。颧骨较高，眼睛轮廓深邃，给人留下深刻印象。肤质良好，但可能需要更加注意保湿。面部比例协调，适合多种风格的造型。",
-                    "分析结果显示您的脸型偏向于心形，额头较宽，下巴略尖。这种脸型非常适合突出眼睛和嘴唇的妆容。肤色均匀，但T区油脂分泌略多，建议注意控油。",
-                    "您的面部线条柔和，给人亲和力强的印象。下颌线条流畅，嘴唇丰满，眼距比例恰当。肤质分析显示色素沉着较少，但有轻微的毛孔问题，建议加强收缩毛孔护理。",
-                    "您的五官分布非常和谐，尤其是鼻唇比例非常黄金。分析显示您的面部轮廓属于方形脸，棱角分明给人干练的印象。肤质良好但偏干，需要加强保湿护理。"
-                ];
-                
-                const recommendationsList = [
-                    "建议尝试自然妆感，强调眼部和唇部，适合日常和职场场合。护肤方面，加强保湿和防晒，定期使用含有玻尿酸的精华液。发型方面，中长层次感卷发能突出面部优势。",
-                    "根据您的脸型和肤质，建议尝试韩系裸妆风格，强调自然光泽感。护肤重点应放在控油和毛孔护理上，适合使用含有水杨酸的产品。短发或齐肩直发都能很好地衬托您的脸型。",
-                    "您的面部特征适合尝试欧美风格妆容，可以尝试轻微的修容来强调颧骨。护肤应关注美白和抗氧化，推荐使用含维生素C的产品。发型上，蓬松的长卷发会很适合您。",
-                    "建议尝试日系自然妆感，突出眼部和腮红。护肤应加强保湿和舒缓，适合使用含有神经酰胺的产品。发型方面，空气刘海和中长直发会很适合您的面部轮廓。",
-                    "您适合尝试精致的烟熏妆和哑光唇膏。护肤重点应放在均衡肤色和细纹预防上，推荐使用视黄醇和多肽类产品。发型上，层次感短发或利落的直发能彰显您的气质。"
-                ];
-                
-                // 随机选择描述和推荐
-                setTimeout(() => {
-                    const randomIndex = Math.floor(Math.random() * aestheticDescriptions.length);
-                    aestheticDescription.textContent = aestheticDescriptions[randomIndex];
-                    recommendations.textContent = recommendationsList[randomIndex];
-                }, 1200);
+                performHeadAnalysis();
             });
             
-            // 文件上传 - 3D面部重建
+            // 3D建模相关功能
             reconstructionUploadBox.addEventListener('click', () => {
                 reconstructionFileInput.click();
             });
@@ -1500,35 +1599,39 @@
                 }
             });
             
-            // 开启摄像头 - 3D面部重建
             reconstructionPhotoButton.addEventListener('click', () => {
                 reconstructionCameraSection.style.display = 'flex';
                 reconstructionUploadBox.style.display = 'none';
                 startCamera(reconstructionCameraPreview);
                 
-                // 初始化网格和点位
                 const gridElement = document.getElementById('reconstructionCameraGrid');
                 createGridAndLandmarks(gridElement);
                 
-                // 设置随机模拟值
+                // 3D建模特定的数据显示
+                let depthProgress = 0;
+                const depthInterval = setInterval(() => {
+                    depthProgress = Math.min(depthProgress + Math.random() * 10, 100);
+                    document.getElementById('depthScan').textContent = Math.floor(depthProgress);
+                    if (depthProgress >= 100) {
+                        clearInterval(depthInterval);
+                    }
+                }, 500);
+                
                 const precisionLevels = ['标准', '高精度', '超高精度'];
-                document.getElementById('modelPrecision').textContent = precisionLevels[Math.floor(Math.random() * precisionLevels.length)];
+                document.getElementById('modelAccuracy').textContent = precisionLevels[Math.floor(Math.random() * precisionLevels.length)];
                 
-                const depthStatuses = ['准备中', '扫描中', '深度识别完成'];
-                document.getElementById('depthDetection').textContent = depthStatuses[Math.floor(Math.random() * depthStatuses.length)];
+                const textureStatuses = ['准备中', '扫描中', '纹理捕获完成'];
+                document.getElementById('textureCapture').textContent = textureStatuses[Math.floor(Math.random() * textureStatuses.length)];
                 
-                // 设置角度选择器
                 setupAngleSelector(reconstructionCameraSection);
             });
             
-            // 关闭摄像头 - 3D面部重建
             reconstructionCloseCamera.addEventListener('click', () => {
                 reconstructionCameraSection.style.display = 'none';
                 reconstructionUploadBox.style.display = 'flex';
                 stopCamera();
             });
             
-            // 拍照 - 3D面部重建
             reconstructionCaptureButton.addEventListener('click', () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = reconstructionCameraPreview.videoWidth;
@@ -1540,179 +1643,55 @@
                 reconstructionCapturedImage.src = imgData;
                 reconstructionCapturedImage.style.display = 'block';
                 
-                // 同时更新上传框中的图片预览
                 reconstructionUploadBox.innerHTML = `<img src="${imgData}" class="preview-image">`;
                 
-                // 关闭相机预览，显示上传框
                 reconstructionCameraSection.style.display = 'none';
                 reconstructionUploadBox.style.display = 'flex';
                 stopCamera();
             });
             
-            // 开始3D重建
+            // 开始3D建模
             reconstructionButton.addEventListener('click', () => {
-                if (!reconstructionFileInput.files && !reconstructionCapturedImage.src) {
-                    alert('请先上传图片或拍照');
+                if (!reconstructionFileInput.files.length && !reconstructionCapturedImage.src) {
+                    alert('请先上传照片或拍照');
                     return;
                 }
                 
                 modelSection.style.display = 'flex';
                 
-                // 重置进度
-                renderingStatus.textContent = '开始重建...';
+                renderingStatus.textContent = '开始构建3D头部模型...';
                 renderingProgress.style.width = '0%';
                 modelOverlay.style.height = '0%';
                 
-                // 模拟重建过程
+                // 模拟3D建模过程
                 let progress = 0;
                 const interval = setInterval(() => {
-                    progress += 2;
+                    progress += 1.5;
                     renderingProgress.style.width = progress + '%';
                     modelOverlay.style.height = progress + '%';
                     
-                    if (progress < 30) {
-                        renderingStatus.textContent = '分析面部特征点...';
-                    } else if (progress < 60) {
-                        renderingStatus.textContent = '生成3D网格模型...';
-                    } else if (progress < 90) {
-                        renderingStatus.textContent = '应用纹理和材质...';
+                    if (progress < 25) {
+                        renderingStatus.textContent = '分析头部特征点...';
+                    } else if (progress < 50) {
+                        renderingStatus.textContent = '构建3D网格结构...';
+                    } else if (progress < 75) {
+                        renderingStatus.textContent = '应用头部纹理...';
+                    } else if (progress < 95) {
+                        renderingStatus.textContent = '优化模型精度...';
                     } else if (progress >= 100) {
-                        renderingStatus.textContent = '3D重建完成！';
+                        renderingStatus.textContent = '3D头部建模完成！';
                         clearInterval(interval);
                         
                         // 显示模型统计数据
-                        document.getElementById('polygonCount').textContent = '24,856';
-                        document.getElementById('vertexCount').textContent = '12,432';
-                        document.getElementById('textureResolution').textContent = '2048x2048';
+                        document.getElementById('headVertexCount').textContent = '18,642';
+                        document.getElementById('faceMeshCount').textContent = '15,328';
+                        document.getElementById('textureResolution').textContent = '4096x4096';
+                        document.getElementById('modelPrecision').textContent = '0.5mm';
                     }
-                }, 50);
+                }, 80);
             });
             
-            // 文件上传 - 试妆
-            makeupUploadBox.addEventListener('click', () => {
-                makeupFileInput.click();
-            });
-            
-            makeupFileInput.addEventListener('change', (e) => {
-                if (e.target.files && e.target.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        makeupUploadBox.innerHTML = `<img src="${e.target.result}" class="preview-image">`;
-                    };
-                    reader.readAsDataURL(e.target.files[0]);
-                }
-            });
-            
-            // 开启摄像头 - 试妆
-            makeupPhotoButton.addEventListener('click', () => {
-                makeupCameraSection.style.display = 'flex';
-                makeupUploadBox.style.display = 'none';
-                startCamera(makeupCameraPreview);
-                
-                // 初始化网格和点位
-                const gridElement = document.getElementById('makeupCameraGrid');
-                createGridAndLandmarks(gridElement);
-                
-                // 设置随机模拟值
-                const skinTones = ['自然色', '暖色调', '冷色调', '橄榄色'];
-                document.getElementById('skinTone').textContent = skinTones[Math.floor(Math.random() * skinTones.length)];
-                
-                const lightConditions = ['良好', '适中', '需要调整'];
-                document.getElementById('makeupLight').textContent = lightConditions[Math.floor(Math.random() * lightConditions.length)];
-                
-                // 设置角度选择器
-                setupAngleSelector(makeupCameraSection);
-            });
-            
-            // 关闭摄像头 - 试妆
-            makeupCloseCamera.addEventListener('click', () => {
-                makeupCameraSection.style.display = 'none';
-                makeupUploadBox.style.display = 'flex';
-                stopCamera();
-            });
-            
-            // 拍照 - 试妆
-            makeupCaptureButton.addEventListener('click', () => {
-                const canvas = document.createElement('canvas');
-                canvas.width = makeupCameraPreview.videoWidth;
-                canvas.height = makeupCameraPreview.videoHeight;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(makeupCameraPreview, 0, 0, canvas.width, canvas.height);
-                
-                const imgData = canvas.toDataURL('image/png');
-                makeupCapturedImage.src = imgData;
-                makeupCapturedImage.style.display = 'block';
-                
-                // 同时更新上传框中的图片预览
-                makeupUploadBox.innerHTML = `<img src="${imgData}" class="preview-image">`;
-                
-                // 关闭相机预览，显示上传框
-                makeupCameraSection.style.display = 'none';
-                makeupUploadBox.style.display = 'flex';
-                stopCamera();
-            });
-            
-            // 开始试妆
-            makeupButton.addEventListener('click', () => {
-                if (!makeupFileInput.files && !makeupCapturedImage.src) {
-                    alert('请先上传图片或拍照');
-                    return;
-                }
-                
-                // 显示试妆选项
-                makeupOptions.style.display = 'block';
-                
-                // 设置原始图像
-                let imageSrc = '';
-                if (makeupFileInput.files && makeupFileInput.files[0]) {
-                    imageSrc = URL.createObjectURL(makeupFileInput.files[0]);
-                } else if (makeupCapturedImage.src) {
-                    imageSrc = makeupCapturedImage.src;
-                }
-                
-                originalMakeupImage.src = imageSrc;
-                // 初始设置为自然妆容结果
-                applyMakeup('natural');
-            });
-            
-            // 试妆选项切换
-            makeupOptionButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    makeupOptionButtons.forEach(b => b.classList.remove('active'));
-                    button.classList.add('active');
-                    const style = button.getAttribute('data-style');
-                    applyMakeup(style);
-                });
-            });
-            
-            // 应用不同妆容
-            function applyMakeup(style) {
-                // 这里应该是根据原图和选择的风格生成妆容图片
-                // 现在我们用模拟的方式，为不同风格设置不同的滤镜效果
-                let filter = '';
-                switch(style) {
-                    case 'natural':
-                        filter = 'brightness(1.05) contrast(1.1) saturate(1.1)';
-                        break;
-                    case 'smokey':
-                        filter = 'brightness(0.95) contrast(1.2) saturate(0.9)';
-                        break;
-                    case 'korean':
-                        filter = 'brightness(1.1) contrast(1.05) saturate(1.2) sepia(0.1)';
-                        break;
-                    case 'japanese':
-                        filter = 'brightness(1.08) contrast(1.1) saturate(1.3) hue-rotate(5deg)';
-                        break;
-                    case 'party':
-                        filter = 'brightness(1.15) contrast(1.25) saturate(1.4) hue-rotate(-5deg)';
-                        break;
-                }
-                
-                makeupResultImage.src = originalMakeupImage.src;
-                makeupResultImage.style.filter = filter;
-            }
-            
-            // 文件上传 - 发型
+            // 发型推荐相关功能
             hairstyleUploadBox.addEventListener('click', () => {
                 hairstyleFileInput.click();
             });
@@ -1727,38 +1706,43 @@
                 }
             });
             
-            // 开启摄像头 - 发型
             hairstylePhotoButton.addEventListener('click', () => {
                 hairstyleCameraSection.style.display = 'flex';
                 hairstyleUploadBox.style.display = 'none';
                 startCamera(hairstyleCameraPreview);
                 
-                // 初始化网格和点位
                 const gridElement = document.getElementById('hairstyleCameraGrid');
                 createGridAndLandmarks(gridElement);
                 
-                // 设置随机模拟值
-                const faceShapes = ['椭圆形', '方形', '心形', '长形', '圆形'];
+                // 发型分析特定数据
+                const faceShapes = ['椭圆形', '方形', '长形', '心形', '圆形'];
                 document.getElementById('faceShape').textContent = faceShapes[Math.floor(Math.random() * faceShapes.length)];
                 
-                const hairlines = ['标准', '高额头', '圆形', 'M形'];
+                const hairlines = ['标准', '高额头', 'M型', '圆形'];
                 document.getElementById('hairline').textContent = hairlines[Math.floor(Math.random() * hairlines.length)];
                 
-                const hairVolumes = ['浓密', '中等', '偏薄'];
-                document.getElementById('hairVolume').textContent = hairVolumes[Math.floor(Math.random() * hairVolumes.length)];
+                const headShapes = ['标准', '宽头', '窄头', '长头'];
+                document.getElementById('headShape').textContent = headShapes[Math.floor(Math.random() * headShapes.length)];
                 
-                // 设置角度选择器
+                // 动态更新风格匹配度
+                let matchProgress = 0;
+                const matchInterval = setInterval(() => {
+                    matchProgress = Math.min(matchProgress + Math.random() * 15, 100);
+                    document.getElementById('styleMatch').textContent = Math.floor(matchProgress) + '%';
+                    if (matchProgress >= 100) {
+                        clearInterval(matchInterval);
+                    }
+                }, 300);
+                
                 setupAngleSelector(hairstyleCameraSection);
             });
             
-            // 关闭摄像头 - 发型
             hairstyleCloseCamera.addEventListener('click', () => {
                 hairstyleCameraSection.style.display = 'none';
                 hairstyleUploadBox.style.display = 'flex';
                 stopCamera();
             });
             
-            // 拍照 - 发型
             hairstyleCaptureButton.addEventListener('click', () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = hairstyleCameraPreview.videoWidth;
@@ -1770,10 +1754,8 @@
                 hairstyleCapturedImage.src = imgData;
                 hairstyleCapturedImage.style.display = 'block';
                 
-                // 同时更新上传框中的图片预览
                 hairstyleUploadBox.innerHTML = `<img src="${imgData}" class="preview-image">`;
                 
-                // 关闭相机预览，显示上传框
                 hairstyleCameraSection.style.display = 'none';
                 hairstyleUploadBox.style.display = 'flex';
                 stopCamera();
@@ -1781,82 +1763,37 @@
             
             // 开始发型推荐
             hairstyleButton.addEventListener('click', () => {
-                if (!hairstyleFileInput.files && !hairstyleCapturedImage.src) {
-                    alert('请先上传图片或拍照');
+                if (!hairstyleFileInput.files.length && !hairstyleCapturedImage.src) {
+                    alert('请先上传照片或拍照');
                     return;
                 }
                 
-                // 显示发型选项
                 hairstyleOptions.style.display = 'block';
                 
-                // 生成发型推荐
-                generateHairstyles('short');
+                // 设置原始图像
+                let imageSrc = '';
+                if (hairstyleFileInput.files && hairstyleFileInput.files[0]) {
+                    imageSrc = URL.createObjectURL(hairstyleFileInput.files[0]);
+                } else if (hairstyleCapturedImage.src) {
+                    imageSrc = hairstyleCapturedImage.src;
+                }
+                
+                originalHairstyleImage.src = imageSrc;
+                arHairstyleImage.src = imageSrc;
+                
+                // 默认生成商务风发型推荐
+                generateMaleHairstyles('business');
             });
             
-            // 发型选项切换
+            // 发型风格切换
             hairstyleOptionButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     hairstyleOptionButtons.forEach(b => b.classList.remove('active'));
                     button.classList.add('active');
                     const style = button.getAttribute('data-style');
-                    generateHairstyles(style);
+                    generateMaleHairstyles(style);
                 });
             });
-            
-            // 生成发型推荐
-            function generateHairstyles(style) {
-                // 清空现有内容
-                hairstyleGrid.innerHTML = '';
-                
-                // 根据选择的风格生成不同的发型推荐
-                const hairstyles = {
-                    'short': [
-                        { name: '精致短鲍伯', description: '这款精致的短鲍伯发型突出您的面部线条，打造干练时尚的形象，适合办公室或休闲场合。' },
-                        { name: '俏皮短碎发', description: '这款俏皮的短碎发增添层次感，突出您的五官特点，活泼又不失成熟魅力。' }
-                    ],
-                    'medium': [
-                        { name: '优雅肩长发', description: '这款肩长发型搭配侧分，能很好地平衡您的脸型比例，展现优雅气质。' },
-                        { name: '时尚层次感中发', description: '多层次的中长发能增加头发体积，修饰脸型，适合各种场合。' }
-                    ],
-                    'long': [
-                        { name: '浪漫长卷发', description: '自然的长卷发增添柔美感，让您的形象更加温柔动人，非常适合日常和特殊场合。' },
-                        { name: '直顺长发', description: '光滑顺直的长发展现现代女性的干练与优雅，适合各种正式场合。' }
-                    ],
-                    'curly': [
-                        { name: '自然卷曲', description: '自然的卷度增添头发体积和层次感，让您看起来更加活力四射。' },
-                        { name: '大波浪卷', description: '经典的大波浪卷发型增添女性魅力，非常适合特殊场合。' }
-                    ],
-                    'straight': [
-                        { name: '齐刘海直发', description: '齐刘海直发能修饰额头，突出眼睛和颧骨，打造可爱又时尚的形象。' },
-                        { name: '侧分顺直', description: '侧分的顺直发型展现知性美感，适合职业场合和日常生活。' }
-                    ]
-                };
-                
-                // 添加发型卡片
-                hairstyles[style].forEach(hairstyle => {
-                    const card = document.createElement('div');
-                    card.className = 'hairstyle-card';
-                    
-                    // 这里使用占位图，实际应用中需要与用户上传的图片结合生成效果图
-                    card.innerHTML = `
-                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4gKgSUNDX1BST0ZJTEUAAQEAAAKQbGNtcwQwAABtbnRyUkdCIFhZWiAH3wAIABMAEgAWADFhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAABCAAAADhjcHJ0AAABQAAAAE53dHB0AAABkAAAABRjaGFkAAABpAAAACxyWFlaAAAB0AAAABRiWFlaAAAB5AAAABRnWFlaAAAB+AAAABRyVFJDAAACDAAAACBnVFJDAAACLAAAACBiVFJDAAACTAAAACBjaHJtAAACbAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABwAAAAcAHMAUgBHAEIAIABiAHUAaQBsAHQALQBpAG4AAG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAMgAAABwATgBvACAAYwBvAHAAeQByAGkAZwBoAHQALAAgAHUAcwBlACAAZgByAGUAZQBsAHkAAAAAWFlaIAAAAAAAAPbWAAEAAAAA0y1zZjMyAAAAAAABDEoAAAXj///zKgAAB5sAAP2H///7ov///aMAAAPYAADAlFhZWiAAAAAAAABvlAAAOO4AAAOQWFlaIAAAAAAAACSdAAAPgwAAtr5YWVogAAAAAAAAYqUAALeQAAAY3nBhcmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAApbcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltwYXJhAAAAAAADAAAAAmZmAADypwAADVkAABPQAAAKW2Nocm0AAAAAAAMAAAAAo9cAAFR7AABMzQAAmZoAACZmAAAPXA==" alt="${hairstyle.name}">
-                        <div class="hairstyle-info">
-                            <h4>${hairstyle.name}</h4>
-                            <p>${hairstyle.description}</p>
-                            <button class="apply-button">应用此发型</button>
-                        </div>
-                    `;
-                    
-                    hairstyleGrid.appendChild(card);
-                });
-                
-                // 添加应用发型按钮功能
-                document.querySelectorAll('.apply-button').forEach(button => {
-                    button.addEventListener('click', function() {
-                        alert('发型已应用，您可以在照片上看到效果。真实场景中，这里会使用AI图像合成技术生成实际效果。');
-                    });
-                });
-            }
             
             // 启动摄像头
             function startCamera(videoElement) {
@@ -1866,7 +1803,7 @@
                             stream = str;
                             videoElement.srcObject = stream;
                             
-                            // 启动摄像头后定期更新点位计数，模拟实时分析
+                            // 启动摄像头后定期更新点位计数
                             const pointCountInterval = setInterval(() => {
                                 if (!stream) {
                                     clearInterval(pointCountInterval);
@@ -1877,10 +1814,10 @@
                                 pointCountElements.forEach(element => {
                                     const currentValue = parseInt(element.textContent);
                                     if (currentValue < 68) {
-                                        element.textContent = Math.min(currentValue + Math.floor(Math.random() * 5), 68);
+                                        element.textContent = Math.min(currentValue + Math.floor(Math.random() * 3), 68);
                                     }
                                 });
-                            }, 1000);
+                            }, 800);
                         })
                         .catch(function(error) {
                             console.error("无法访问摄像头: ", error);
